@@ -3,13 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.webfutbol2017.beans;
+package com.webfutbol2017.seguimientos.beans;
 
 import com.webfutbol2017.backend.persistence.entities.Item;
 import com.webfutbol2017.backend.persistence.facades.ItemFacade;
-import com.webfutbol2017.converters.InterfaceController;
-import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -19,16 +16,15 @@ import javax.enterprise.context.RequestScoped;
  *
  * @author Iesua
  */
-@Named(value = "itemManagedBean")
+@Named(value = "registrarItemManagedBean")
 @RequestScoped
-public class ItemManagedBean implements Serializable, InterfaceController<Item> {
+public class RegistrarItemManagedBean {
 
     private Item item;
     @EJB
     private ItemFacade itf;
     
-    
-    public ItemManagedBean() {
+    public RegistrarItemManagedBean() {
     }
 
     public Item getItem() {
@@ -39,26 +35,26 @@ public class ItemManagedBean implements Serializable, InterfaceController<Item> 
         this.item = item;
     }
     
-    
     @PostConstruct
     public void init(){
         item = new Item();
     }
     
-    
-    
-    
-    public List<Item> listarItem(){
-        return itf.findAll();
+    public void registrarItem(){
+        itf.create(item);
     }
     
+    public void modificarItem(){
+        itf.edit(item);
+    }
     
+    public void eliminarItem(Item i){
+        itf.remove(item);
+    }
     
-    
-
-    @Override
-    public Item getObjectByKey(Integer key) {
-        return itf.find(key);
+    public String actualizarItem(Item it){
+        item = it;
+        return "";
     }
     
 }
