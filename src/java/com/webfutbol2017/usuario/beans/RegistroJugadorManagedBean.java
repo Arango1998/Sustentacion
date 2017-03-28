@@ -1,4 +1,4 @@
-package com.webfutbol2017.beans.usuarios.modelos;
+package com.webfutbol2017.usuaribeansos;
 
 import com.webfutbol2017.backend.persistence.entities.Usuario;
 import com.webfutbol2017.backend.persistence.facades.UsuarioFacade;

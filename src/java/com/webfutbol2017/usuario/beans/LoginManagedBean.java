@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.webfutbol2017.beans.usuarios.modelos;
+package com.webfutbol2017.usuario.beans;
 
 import com.webfutbol2017.backend.persistence.entities.Usuario;
 import com.webfutbol2017.backend.persistence.facades.UsuarioFacade;
