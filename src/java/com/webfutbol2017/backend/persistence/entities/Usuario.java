@@ -326,7 +326,9 @@ public class Usuario implements Serializable, IDTO {
 
     @Override
     public String obtenerLlavePrimaria() {
-        return idUsuario.toString();
+    return idUsuario.toString();
     }
+
+
 
 }
