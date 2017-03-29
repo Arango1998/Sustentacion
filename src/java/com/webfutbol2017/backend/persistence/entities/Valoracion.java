@@ -38,16 +38,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Valoracion.findByNota", query = "SELECT v FROM Valoracion v WHERE v.nota = :nota")})
 public class Valoracion implements Serializable, IDTO {
 
+    @Column(name = "nota")
+    private Integer nota;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_valoracion")
     private Integer idValoracion;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "nota")
-    private int nota;
     @JoinColumn(name = "id_seguimiento", referencedColumnName = "id_seguimiento")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Seguimiento idSeguimiento;
@@ -74,13 +73,6 @@ public class Valoracion implements Serializable, IDTO {
         this.idValoracion = idValoracion;
     }
 
-    public int getNota() {
-        return nota;
-    }
-
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
 
     public Seguimiento getIdSeguimiento() {
         return idSeguimiento;
@@ -127,6 +119,14 @@ public class Valoracion implements Serializable, IDTO {
     @Override
     public String obtenerLlavePrimaria() {
         return idValoracion.toString();
+    }
+
+    public Integer getNota() {
+        return nota;
+    }
+
+    public void setNota(Integer nota) {
+        this.nota = nota;
     }
     
 }

@@ -50,7 +50,9 @@ public class SeguimientoManagedBean implements Serializable, InterfaceController
         return segf.findAll();
     }
     
-   
+    public void registrarSeguimiento(){
+        segf.create(seguimiento);
+    }
     @Override
     public Seguimiento getObjectByKey(Integer key) {
         return segf.find(key);
